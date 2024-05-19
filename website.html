@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navigation Bar</title>
+<style>
+  /* Footer container styles */
+  .footer-container {
+    background-color: hsl(0, 11%, 91%);
+    padding: 20px;
+    text-align: left;
+    position: bottom;
+    bottom: 0;
+    left: 0;
+    
+    
+  }
+
+  /* Reply heading styles */
+  .reply-heading {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  /* Subheading styles */
+  .reply-heading1 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: normal;
+  }
+
+  /* Navigation bar styles */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #2c3e50; /* Dark blue */
+    color: #ecf0f1; /* Light gray */
+  }
+
+  /* Logo styles */
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  /* Navigation links styles */
+  .navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+  }
+
+  .navbar ul li a {
+    color: #ecf0f1;
+    text-decoration: none;
+  }
+
+  /* Search bar and icon styles */
+  .search-bar {
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    background-color: #34495e; /* Darker blue */
+    color: #ecf0f1; /* Light gray */
+    font-size: 16px;
+    margin-right: 10px;
+  }
+
+  .search-icon {
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  /* Single blog div styles */
+  .single-blog {
+    background-color: #20680e;
+    padding: 20px;
+    color: #e2e5e9; /* Dark blue */
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+  /* Image container styles */
+  .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    height: 65vh;
+    background-color: hsl(0, 11%, 91%);
+    
+
+  }
+
+  .centered-image {
+    max-width: 80%; /* Limit the image width */
+    max-height: 80%; /* Limit the image height */
+    object-fit: contain; /* Maintain aspect ratio */
+  }
+
+  /* Container for text box and blog categories */
+  .container {
+    display: flex; /* Use flexbox for layout */
+    justify-content: center;
+    width: 100%; /* Full width of the viewport */
+    background-color: #ffffff;
+    padding: 20px 0;
+    padding: bottom 1px;
+  }
+
+  /* Text box styles */
+  .text-box {
+    width: 70%; /* Set the width of the text box */
+    padding:30px;
+    background-color: hsl(0, 11%, 91%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    margin-top:0%;
+    
+
+    
+  }
+
+  /* Blog categories styles */
+  .column1 {
+    flex: 1;
+    padding: 20px;
+    border:1px solid hsl(0, 11%, 91%); /* Border for clarity */
+  }
+
+  .column2 {
+    flex: 1;
+    padding: 20px;
+    border:1px solid hsl(0, 11%, 91%); /* Border for clarity */
+  }
+
+  /* Share container styles */
+  .share-container {
+    text-align: left;
+    background-color: hsl(0, 11%, 91%);
+    padding: 20px;
+  }
+
+  .share-icons a img {
+    width: 32px;
+    margin: 0 5px;
+  }
+  .submit-button {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+ /* Flexbox container for horizontal layout */
+ .comment-section {
+    display: flex;
+    align-items: flex-start;
+  }
+
+
+.blog-categories {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.blog-categories h2 {
+    background-color: #00a651;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+    margin: 0;
+}
+
+.blog-categories ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.blog-categories ul li {
+    margin: 10px 0;
+}
+
+.blog-categories ul li a {
+    display: block;
+    padding: 10px;
+    background-color: #00a651;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    
+}
+
+.blog-categories ul li a:hover {
+    background-color: #007a39;
+}
+
+.category.personal-finance {
+    background-color: #00a651;
+}
+
+.category.investing {
+    background-color: #f39c12;
+}
+
+.category.entrepreneurship {
+    background-color: #3498db;
+}
+
+.category.personal-finance:hover {
+    background-color: #007a39;
+}
+
+.category.investing:hover {
+    background-color: #d35400;
+}
+
+.category.entrepreneurship:hover {
+    background-color: #2980b9;
+}
+
+
+.sidebar {
+            width: 300px;
+        }
+        .popular-posts {
+            margin-top: 20px;
+        }
+        .popular-posts h3 {
+            background-color: #ff6f61;
+            color: white;
+            padding: 10px;
+            margin: 0;
+        }
+        .post {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            background-color: #ffffff;
+        }
+        .post img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+        .post .post-content {
+            display: flex;
+            flex-direction: column;
+        }
+        .post .post-content a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+        }
+        .post .post-content .meta {
+            font-size: 12px;
+            color: #999;
+        }
+
+
+
+</style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<div class="navbar">
+  <div class="logo">Logo Name</div>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Blog</a></li>
+    <li><a href="#">Gallery</a></li>
+    <li><a href="#">News</a></li>
+    <li><a href="#">Contact Us</a></li>
+  </ul>
+  <input type="text" class="search-bar" placeholder="Search...">
+  <div class="search-icon">&#128269;</div>
+</div>
+
+<!-- Single Blog Section -->
+<div class="single-blog">
+  Single Blog
+</div>
+
+<!-- Image Container -->
+<div class="image-container">
+  <img src="https://hrtechcube.com/wp-content/uploads/2020/02/Virtual-Workplace.jpg" alt="Centered Image" class="centered-image">
+</div>
+
+<!-- Text Box and Blog Categories -->
+<div class="container">
+  <div class="text-box">
+    <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only live centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
+    <h1><strong>Contrary to popular belief</strong></h1>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+      It has survived not only live centuries, but also the leap into electronic typesetting, remain- ing essentially unchanged. It was popularised in the 1960s with the telesase of Letrase sheets containing.
+      Lorem ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of 1 orem Ipsum, was my biggest one.
+      Lorem ipsum is simply dummy text of the printing and typesetting industry.</p>
+      <p> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+      It has survived not only five centuries, but also the leap into electronic typesetting, remain- ing essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing.
+      Lorem ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of 1 orem Ipsum, was my biggestoned rem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+    <h2><strong>Contrary to popular belief</strong></h2>
+    <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+      It has survived not only live centuries, but also the leap into electronic typesetting, remain- ing essentially unchanged. It was popularised in the 1960s with the telesase of Letrase sheets containing.
+      Lorem ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of 1 orem Ipsum, was my biggest one.</p>
+ 
+      <h2>Share</h2>
+      <div class="share-icons">
+        <a href="https://www.facebook.com"><img src=" data:image/png;base64,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" alt="Facebook"></a>
+        <a href="https://www.twitter.com"><img src=" https://cdn-icons-png.freepik.com/256/124/124021.png?semt=ais_hybrid"alt="Facebook"></a>
+        <a href="https://plus.google.com"><img src="https://cdn0.iconfinder.com/data/icons/social-flat-rounded-rects/512/google_plus-512.png " alt="Google Plus"></a>
+        <a href="whatsapp://send?text=Check out this cool website: example.com"><img src=" https://png.pngtree.com/png-clipart/20221019/original/pngtree-whatsapp-icon-png-image_8704827.png" alt="WhatsApp"></a>
+        <a href="https://pk.linkedin.com/"><img src="https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjk4Mi1kNS0xMF8xLnBuZw.png" alt="Linkedin" ></a>
+ 
+
+        <h2 class="reply-heading">Leave a Reply</h2>
+        <!-- Reply Form -->
+        <form action="/submit-reply" method="POST">
+          <textarea name="reply-content" placeholder="Write your reply here..." rows="4" cols="100"></textarea>
+          <h3 class="comment-section ">Name*</h3>
+          <input type="text" name="name" placeholder="" rows="1" cols="85">
+          <h3 class="reply-heading1">Email*</h3>
+          <input type="email" name="email" placeholder="" rows="1" cols="85">
+          <h3 class="reply-heading1">Website</h3>
+          <input type="text" name="website" placeholder="" rows="1" cols="85">
+          <br>
+        <br>
+          <button type="submit" class="submit-button">Post Comment</button>
+        </form>
+
+    </div>
+    </div>
+
+    <aside class="column2">
+      <h2>Blog Categories</h2>
+      <div class="blog-categories">
+          <ul>
+              <li><a href="#" class="category personal-finance">Personal Finance</a></li>
+              <li><a href="#" class="category investing">Investing</a></li>
+              <li><a href="#" class="category entrepreneurship">Entrepreneurship</a></li>
+              <li><a href="#" class="category personal-finance">Personal Finance</a></li>
+              <li><a href="#" class="category investing">Investing</a></li>
+              <li><a href="#" class="category entrepreneurship">Entrepreneurship</a></li>
+              <li><a href="#" class="category personal-finance">Personal Finance</a></li>
+              <li><a href="#" class="category investing">Investing</a></li>
+              <li><a href="#" class="category entrepreneurship">Entrepreneurship</a></li>
+          </ul>
+
+          <div class="sidebar">
+            <h3>Popular Posts</h3>
+
+            <div class="popular-posts">
+                
+                <div class="post">
+                    <img src="https://thumbs.dreamstime.com/b/smiling-young-asian-businesswoman-using-computer-working-online-home-office-workplace-happy-korean-employee-laptop-116517259.jpg " alt="Post Thumbnail">
+                    <div class="post-content">
+                        <a href="#">There are many variations of passages of Lorem</a>
+                        <div class="meta">By Admin (18)</div>
+                    </div>
+                </div>
+                <div class="post">
+                    <img src="https://i.pinimg.com/736x/0b/49/e9/0b49e9ebcef51acbcc7da5deee8f782c.jpg " alt="Post Thumbnail">
+                    <div class="post-content">
+                        <a href="#">There are many variations of passages of Lorem</a>
+                        <div class="meta">By Admin (18)</div>
+                    </div>
+                </div>
+                <div class="post">
+                    <img src="https://hrtechcube.com/wp-content/uploads/2020/02/Virtual-Workplace.jpg " alt="Post Thumbnail">
+                    <div class="post-content">
+                        <a href="#">There are many variations of passages of Lorem</a>
+                        <div class="meta">By Admin (18)</div>
+                    </div>
+                </div>
+                <div class="post">
+                  <img src="https://img.freepik.com/free-photo/businessman-working-cafe_1157-20946.jpg?size=626&ext=jpg&ga=GA1.1.87170709.1707609600&semt=ais " alt="Post Thumbnail">
+                  <div class="post-content">
+                      <a href="#">There are many variations of passages of Lorem</a>
+                      <div class="meta">By Admin (18)</div>
+                  </div>
+                </div>
+                <div class="post">
+                  <img src=" https://www.shutterstock.com/shutterstock/photos/1654831870/display_1500/stock-photo-young-business-man-working-at-home-with-laptop-and-papers-on-desk-1654831870.jpg" alt="Post Thumbnail">
+                  <div class="post-content">
+                      <a href="#">There are many variations of passages of Lorem</a>
+                      <div class="meta">By Admin (18)</div>
+                  </div>
+                
+                
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      </div>
+  </aside>
+
+
+</body>
+</html>
