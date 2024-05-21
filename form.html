@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Validation</title>
+<style>
+    body {
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+    }
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    input, select, textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        outline: none;
+    }
+    input:focus, select:focus, textarea:focus {
+        border-color: blue;
+    }
+    .error {
+        color: red;
+        font-size: 14px;
+        margin-top: -5px;
+        margin-bottom: 10px;
+    }
+    button {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>Student Application Form</h2>
+    <form id="applicationForm" action="#" method="post">
+        <label for="studentName">Student Name:</label>
+        <input type="text" id="studentName" name="studentName" required maxlength="20" pattern="[A-Za-z]+" title="Alphabets only, max 20 characters">
+        <div class="error" id="nameError"></div>
+        
+        <label for="birthdate">Birth Date:</label>
+        <input type="date" id="birthdate" name="birthdate" required max="2003-12-31" min="1950-01-01">
+        <div class="error" id="birthdateError"></div>
+        
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <div class="error" id="genderError"></div>
+        
+        <!-- Include other form fields and validations as per the requirements -->
+        
+        <button type="button" onclick="validateForm()">Submit Application</button>
+        <button type="button" onclick="clearForm()">Clear Fields</button>
+    </form>
+</div>
+
+<script>
+function validateForm() {
+    var form = document.getElementById("applicationForm");
+    var isValid = form.checkValidity();
+    
+    if (!isValid) {
+        displayErrorMessages();
+    } else {
+        // Submit the form
+        form.submit();
+    }
+}
+
+function displayErrorMessages() {
+    var nameInput = document.getElementById("studentName");
+    var nameError = document.getElementById("nameError");
+    if (nameInput.validity.valueMissing) {
+        nameError.textContent = "Please enter your name.";
+    } else if (nameInput.validity.patternMismatch) {
+        nameError.textContent = "Please enter alphabets only.";
+    } else if (nameInput.validity.tooLong) {
+        nameError.textContent = "Name should be maximum 20 characters long.";
+    }
+    
+    // Include error messages for other fields
+    
+    // Scroll to the first error message
+    nameError.scrollIntoView({ behavior: 'smooth' });
+}
+
+function clearForm() {
+    document.getElementById("applicationForm").reset();
+}
+</script>
+</body>
+</html>
